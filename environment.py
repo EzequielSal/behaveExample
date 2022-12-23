@@ -23,7 +23,7 @@ def after_scenario(context, scenario):
 
 def after_all(context):
     log.info("Script finalizado")
-    time.sleep(15)
+    time.sleep(5)
 
 
 """def before_feature(context):
