@@ -1,7 +1,9 @@
+import time
 from behave import given, when, then
 from pages.LoginPage import LoginPage
 from pages.ProductListPage import ProductListPage
 from pages.CartPage import CartPage
+from pages.CheckoutPage import CheckoutPage
 
 
 class PurchaseSteps:
@@ -28,3 +30,23 @@ class PurchaseSteps:
         context.cart_page_object = CartPage(context.web_driver)
         context.cart_page_object.verify_cart_page()
         context.cart_page_object.press_checkout_button()
+
+
+    @when("Compra de productos -> Agreguemos nuestros datos y confirmemos nuestra compra {name} {lastname} {zipcode}")
+    def send_personal_info(context, name, lastname, zipcode):
+        context.Checkout_pages = CheckoutPage(context.web_driver)
+        context.Checkout_pages.send_info_checkout(name, lastname, zipcode)
+        time.sleep(5)
+
+
+    @then("Compra de productos -> Validamos la thk page al finalizar la misma")
+    def verify_message_checkout(context):
+        context.Checkout_pages.press_button_continue()
+        context.Checkout_pages.verify_page_purchase_checkout()
+        context.Checkout_pages.press_button_purchase()
+        context.Checkout_pages.verify_TKP()
+        context.Checkout_pages.press_button_back_to_products()
+
+
+
+

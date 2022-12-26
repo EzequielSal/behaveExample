@@ -5,5 +5,5 @@ Feature: Compra de productos
     When Compra de productos -> Haya ingresado mi usuario y contraseña y presionado entrar standard_user secret_sauce
     When Compra de productos -> Agreguemos un producto al carrito
     Then Compra de productos -> Vamos a carrito y continuamos con la compra
-    """When Compra de productos -> Agreguemos nuestros datos y confirmemos nuestra compra
-    Then Compra de productos -> Validamos la thk page al finalizar la misma"""
+    When Compra de productos -> Agreguemos nuestros datos y confirmemos nuestra compra Ezequiel Saldaña 80000
+    Then Compra de productos -> Validamos la thk page al finalizar la misma
